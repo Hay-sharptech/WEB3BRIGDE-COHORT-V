@@ -1,26 +1,28 @@
 pragma solidity 0.8.0;
-contract Mappyn{
-    
-    
-    mapping(address => uint)noOfTimes;
-    mapping(address => bytes32)lastCalledAddy;
-    
-    bool _noOfTimes = true;
-    bool _lastCalledAddy=true;
-    
-    function check(address X, uint Y)private returns(bool) {
-        noOfTimes[X]=Y;
-        _noOfTimes=false;
-        return _noOfTimes;
-    } 
-    function knowFunHash(address _X, bytes32 value) private returns(bool) {
-        lastCalledAddy[_X]=value;
-        _lastCalledAddy=false;
-        return _lastCalledAddy;
+contract Mappyn{     
+    mapping(address => uint) private addressToInt;
+    mapping(address => bytes32) private addressToHashes;
+    function 1stfirst() public returns(bool){
+        addressToInt[msg.sender]++;
+        addressToHashes[msg.sender] = keccak256(abi.encodeWithSignature("1stfirst()"));
+        return true;
     }
-    function updateMappings(address X, uint Y)private{
-        noOfTimes[X]+=Y;
+     function second() public returns(bool){
+         addressToInt[msg.sender]++;
+         addressToHashes[msg.sender] = keccak256(abi.encodeWithSignature("second()"));
+        return true;
+    }
+     function third() public returns(bool){
+         addressToInt[msg.sender]++;
+         addressToHashes[msg.sender] = keccak256(abi.encodeWithSignature("third()"));
+        return true;
+    }
 
+   
+ function 3rdthird() public returns(bool){
+         addressToHashes[msg.sender] = keccak256(abi.encodeWithSignature("3rdthird()"));
+         addresstofInt[msg.sender]++;
+        return true;
     }
-    
 }
+ 
