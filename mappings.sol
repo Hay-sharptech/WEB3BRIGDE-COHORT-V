@@ -7,8 +7,8 @@ pragma solidity 0.8.0;
 // and update the mappings accordingly
 
 contract Mappyn{     
-    mapping(address => uint) public addressToInt;
-    mapping(address => bytes32) public addressToHashes;
+    mapping(address => uint) private addressToInt;
+    mapping(address => bytes32) private addressToHashes;
     function first() public returns(bool){
         addressToInt[msg.sender]++;
         addressToHashes[msg.sender] = keccak256(abi.encodeWithSignature("1stfirst()"));
