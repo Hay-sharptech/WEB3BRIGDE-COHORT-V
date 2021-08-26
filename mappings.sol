@@ -11,18 +11,18 @@ contract Mappyn{
     mapping(address => bytes32) private addressToHashes;
     function first() public returns(bool){
         addressToInt[msg.sender]++;
-        addressToHashes[msg.sender] = keccak256(abi.encodeWithSignature("first()"));
+        addressToHashes[msg.sender] = keccak256(abi.encodePacked("first()"));
         return true;
     }
      function second() public returns(bool){
          addressToInt[msg.sender]++;
-         addressToHashes[msg.sender] = keccak256(abi.encodeWithSignature("second()"));
+         addressToHashes[msg.sender] = keccak256(abi.encodePacked("second()"));
         return true;
     }
     
    
  function tthird() public returns(bool){
-         addressToHashes[msg.sender] = keccak256(abi.encodeWithSignature("tthird()"));
+         addressToHashes[msg.sender] = keccak256(abi.encodePacked("tthird()"));
          addressToInt[msg.sender]++;
         return true;
     }
